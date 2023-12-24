@@ -22,6 +22,23 @@ class LinkedList:
         while h.next:
             h = h.next
         h.next = Node(data, None)
+    
+    #insert value from List   
+    def insertValue(self, dataList):
+        self.head = None
+        for data in dataList:
+            self.insertAtEnd(data)
+            #self.insertAtBeginning(data)
+            
+            
+    #length of the linked List
+    def length(self):
+        length = 0
+        h = self.head
+        while h:
+            length += 1
+            h = h.next
+        return length
         
     def PrintItems(self):
         if self.head is None:
@@ -35,11 +52,16 @@ class LinkedList:
             
 if __name__ == '__main__':
     List = LinkedList()
-    List.insertAtBeginning(10)
-    List.insertAtBeginning(20)
-    List.insertAtBeginning(30)
-    List.insertAtBeginning(40)
-    List.insertAtBeginning(50)
-    List.insertAtEnd(5)
-    List.insertAtBeginning(10)
+    
+    # List.insertAtBeginning(10)
+    # List.insertAtBeginning(20)
+    # List.insertAtBeginning(30)
+    # List.insertAtBeginning(40)
+    # List.insertAtBeginning(50)
+    # List.insertAtEnd(5)
+    # List.insertAtBeginning(10)
+    
+    List.insertValue([10, "Ten", 20, "Twenty", 30, "Thirty"])
     List.PrintItems()
+    
+    print(f"Length: {List.length()}")
