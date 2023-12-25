@@ -22,6 +22,24 @@ class LinkedList:
         while h.next:
             h = h.next
         h.next = Node(data, None)
+        
+    #insert with index    
+    def insertAt(self, index, data):
+        if index < 0 and index > self.length():
+            raise Exception("Out of bounds!")
+        if index == 0:
+            self.insertAtBeginning(data)
+            return
+        count = 0
+        h = self.head
+        while h:
+            if count == index-1:
+                node = Node(data, h.next)
+                h.next = node
+                break 
+            h = h.next
+            count += 1
+        
     
     #insert value from List   
     def insertValue(self, dataList):
@@ -62,6 +80,7 @@ if __name__ == '__main__':
     # List.insertAtBeginning(10)
     
     List.insertValue([10, "Ten", 20, "Twenty", 30, "Thirty"])
+    List.insertAt(1, "TWO")
     List.PrintItems()
     
     print(f"Length: {List.length()}")
